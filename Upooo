@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en"> 
+ <head></head> 
+ <body> 
+  <h1> Hello </h1> 
+  <div>
+    welcome to the world of scientia 
+   <br> 
+  </div> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Aarav Handa - Scientific Researcher</title> 
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #444;
+        }
+        nav a {
+            color: #fff;
+            padding: 1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        nav a:hover {
+            background: #555;
+        }
+        section {
+            padding: 2rem;
+            margin: 1rem;
+            display: none;
+        }
+        #about {
+            display: block;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .blog-list {
+            list-style: none;
+            padding: 0;
+        }
+        .blog-list li {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f4f4f4;
+            border-radius: 5px;
+        }
+        .blog-list a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .blog-list a:hover {
+            text-decoration: underline;
+        }
+    </style> 
+  <script>
+        function showSection(sectionId) {
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('blogs').style.display = 'none';
+            document.getElementById('contact').style.display = 'none';
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function addBlogEntry(title, fileName) {
+            const blogList = document.getElementById('blogList');
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = fileName;
+            link.textContent = title;
+            link.target = '_blank';
+            listItem.appendChild(link);
+            blogList.appendChild(listItem);
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const title = document.getElementById('blogTitle').value;
+            const fileInput = document.getElementById('fileUpload');
+            const file = fileInput.files[0];
+            if (title && file) {
+                addBlogEntry(title, URL.createObjectURL(file));
+                document.getElementById('blogForm').reset();
+            } else {
+                alert('Please enter a title and select a file.');
+            }
+        }
+    </script> 
+  <header> 
+   <h1>Aarav Handa - Scientific Researcher</h1> 
+  </header> 
+  <nav> <a onclick="showSection('about')">About Me</a> <a onclick="showSection('blogs')">Blogs &amp; Papers</a> <a onclick="showSection('contact')">Contact</a> 
+  </nav> <!-- About Me Section --> 
+  <section id="about"> 
+   <div class="container"> 
+    <h2>About Me</h2> 
+    <p>Welcome! I'm Aarav Handa, a dedicated scientific researcher with a passion for unraveling the mysteries of the universe through experiments, robotics, and nuclear physics. My journey in science is driven by a relentless curiosity and a belief in the transformative power of innovation. Whether I’m tinkering with the latest robotics technology, pushing the boundaries of nuclear physics, or diving into complex experiments, my work is all about exploring the unknown and turning bold ideas into reality. Join me as I navigate the fascinating world of science, where every discovery brings us one step closer to understanding the extraordinary universe we live in.</p> 
+   </div> 
+  </section> <!-- Blogs & Papers Section --> 
+  <section id="blogs"> 
+   <div class="container"> 
+    <h2>Blogs &amp; Papers</h2> 
+    <p>Upload your daily blogs and research papers here. Each entry will be listed below with its title.</p> 
+    <form id="blogForm" onsubmit="handleFormSubmit(event)"> <label for="blogTitle">Blog/Paper Title:</label>
+     <br> 
+     <input type="text" id="blogTitle" name="blogTitle" required>
+     <br>
+     <br> <label for="fileUpload">Upload PDF/Text File:</label>
+     <br> 
+     <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.txt" required>
+     <br>
+     <br> 
+     <input type="submit" value="Submit"> 
+    </form> 
+    <hr> 
+    <h3>Uploaded Blogs &amp; Papers:</h3> 
+    <ul id="blogList" class="blog-list"> <!-- Uploaded blogs and papers will be listed here --> 
+    </ul> 
+   </div> 
+  </section> <!-- Contact Section --> 
+  <section id="contact"> 
+   <div class="container"> 
+    <h2>Contact Information</h2> 
+    <p>Email: <a href="mailto:your-email@example.com">your-aaravlunasha@gmail com</a></p> 
+    <p>Phone: <a href="tel:+1234567890">+9522097400</a></p> 
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/your-profile">linkedin.com/in/your-profile</a></p> 
+   </div> 
+  </section> 
+  <footer> 
+   <p>© 2024 Aarav Handa. All rights reserved.</p> 
+  </footer> 
+ </body>
+</html>
